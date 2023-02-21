@@ -1,6 +1,6 @@
 stages:
   - build
-  - test
+  - deploy
   
 docker:image:
   stage: build
@@ -8,17 +8,19 @@ docker:image:
   services:
     - docker:dind
   script:
+    # directng the docker_host to the docker installed
     - export DOCKER_HOST=tcp://docker:2375/
-    - docker version
+    # building the repository with a Dockerfile
     - docker build -t aimingds/dumbflix-ci:latest .
     # push only for tags
-#    - "[[ -z $CI_BUILD_TAG ]] && exit 0"
-#    - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$CI_BUILD_TAG
+    - "[[ -z $CI_BUILD_TAG ]] && exit 0"
+    - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$CI_BUILD_TAG
+    # Docker hub login to push image
     - docker login -u aimingds -p $PASS_DOCKER
     - docker push aimingds/dumbflix-ci:latest
 
 docker:deploy:
-  stage: test
+  stage: deploy
   before_script:
   - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )' 
   - eval $(ssh-agent -s)
