@@ -57,6 +57,16 @@ Repository Settings > CI/CD
 ![image](https://user-images.githubusercontent.com/111945026/220284498-bb935343-d013-438b-9657-ba8dd926d86c.png)
 
 6. From here, we can clone the `Dumbflix/Wayshub` repository into the Gitlab Project
+```
+git clone https://github.com/dumbwaysdev/dumbflix-frontend
+
+ssh git@gitlab.com
+
+git remote origin set-url git@gitlab.com:<gitlab-user>/<project-name>.git
+
+git push origin <branch>
+
+```
 7. s
 8. s
 9. s
