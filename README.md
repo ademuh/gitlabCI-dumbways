@@ -67,10 +67,6 @@ git remote origin set-url git@gitlab.com:<gitlab-user>/<project-name>.git
 git push origin <branch>
 
 ```
-7. s
-8. s
-9. s
-10. s
 
 ## Step-by-step : Pipeline
 1. Go to `CI/CD > Pipeline`
@@ -83,9 +79,4 @@ git push origin <branch>
 4. Gitlab repository changes will trigger the pipeline automatically
 ![image](https://user-images.githubusercontent.com/111945026/220287332-0a7ccae7-1dd2-45ba-8921-948c1c798fed.png)
 
-5. a
-6. a
-7. a
-8. a
- 
 
